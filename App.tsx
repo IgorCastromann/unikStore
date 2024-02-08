@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { NativeBaseProvider, Text } from "native-base";
 
 export default function App() {
   return (
-    <View>
+    <NativeBaseProvider>
       <Text>unikStore</Text>
       <StatusBar style="auto" />
-    </View>
+    </NativeBaseProvider>
   );
 }
