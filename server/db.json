@@ -1,0 +1,92 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camiseta aero 5.0",
+      "price": 199.99,
+      "quantity": 1,
+      "description": "Camiseta com tecnologia da NASA, de quebra ajuda a pegar aquele bronze nos dias ensolarados.",
+      "image": "https://media.istockphoto.com/id/485870443/photo/back-of-a-man-with-a-ripped-white-t-shirt.webp?b=1&s=170667a&w=0&k=20&c=SHj8HJ9_-VJ9vI2OLmwXzwTIMb_d-pbSOt8l6ShihM8="
+    },
+    {
+      "id": 2,
+      "name": "Caneca de King`s Landing",
+      "price": 39.99,
+      "quantity": 1,
+      "description": "Ultima caneca existente de King`s Landing, set onde foram gravadas as cenas de Game of Thrones, o resto derreteu.",
+      "image": "https://media.istockphoto.com/id/461150479/photo/blue-mug-isolated-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=yprCtcNF0LVizKyNJ0_g4avukBtbBG2c2IEbxXDh0_Q="
+    },
+    {
+      "id": 3,
+      "name": "Carteira de couro",
+      "price": 10000.0,
+      "quantity": 1,
+      "description": "Pode parecer simples, e é! mas foi utilizada por Steve Jobs.",
+      "image": "https://media.istockphoto.com/id/187565523/photo/wallet.webp?b=1&s=170667a&w=0&k=20&c=ZS5NNMdv8Em_Uo5khTUbmlnb-8o5jKaVeiRxpTUpHdE="
+    },
+    {
+      "id": 4,
+      "name": "Lapiseira 007",
+      "price": 2399.99,
+      "quantity": 1,
+      "description": "James Bond approves.",
+      "image": "https://cdnv2.moovin.com.br/marbig/imagens/produtos/det/lapiseira-0-7mm-i-point-preta-img-89801.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Sneakers USA Flag",
+      "price": 5000,
+      "quantity": 1,
+      "description": "Importado direto dos EUA, ideal para quem participa do 'quanto custa seu outfit?'.",
+      "image": "https://media.istockphoto.com/id/514151240/photo/vintage-basketball-shoes-with-usa-flag.webp?b=1&s=170667a&w=0&k=20&c=daNSUh3penlYkDmY6WpzmIdaYKr398NdKsAx-TDAeic="
+    },
+    {
+      "id": 6,
+      "name": "Bermuda de banho",
+      "price": 144.99,
+      "quantity": 1,
+      "description": "É de banho, mas serve pra ir na praia também.",
+      "image": "https://media.istockphoto.com/id/487387674/photo/swimming-trunks.webp?b=1&s=170667a&w=0&k=20&c=GcC4INM2QXORok-dtHOgn9G-tmDHdQQUeFz9y4gMBV0="
+    },
+    {
+      "id": 7,
+      "name": "Primeira Pedra",
+      "price": 1.99,
+      "quantity": 1,
+      "description": "Esperando a primeira pessoa que nunca errou, para ser atirada.",
+      "image": "https://media.istockphoto.com/id/946132558/photo/rock-isolated-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=zs-m7yWaI6quGw31rhF_-DcY7aesyzKPzbahNsDLwbM="
+    },
+    {
+      "id": 8,
+      "name": "Todos troféus de mundial do Palmeiras",
+      "price": 6173317.0,
+      "quantity": 1,
+      "description": "Literalmente todos.",
+      "image": "https://media.istockphoto.com/id/1495994665/photo/abstract-gray-empty-background.webp?b=1&s=170667a&w=0&k=20&c=ymCGrQgg0B1HsL5deQbAZqRb_6ZJ3CfOwECYOXSsWZM="
+    },
+    {
+      "id": 9,
+      "name": "PC Gamer RGB",
+      "price": 3329.99,
+      "quantity": 1,
+      "description": "Destinado aos doteiros de plantão.",
+      "image": "https://media.istockphoto.com/id/1435610168/photo/gamer-computer-desktop-with-rgb-lights-on-the-background-modern-pc-computer-white-screen.webp?b=1&s=170667a&w=0&k=20&c=XmO7zsfqqpyKCJknbln7VaQybGlBGyffOxm1-QzBOhU="
+    },
+    {
+      "id": 10,
+      "name": "Tijolo",
+      "price": 3000.8,
+      "quantity": 1,
+      "description": "Another brick out the wall.",
+      "image": "https://media.istockphoto.com/id/147319929/photo/two-bricks.webp?b=1&s=170667a&w=0&k=20&c=NgRKomxQ9-p34kOsM6wEXAPYnvvM2lWFVxnRqIYsvSY="
+    },
+    {
+      "id": 11,
+      "name": "Tv 4K",
+      "price": 4000,
+      "quantity": 1,
+      "description": "Televisão utilizada por Arnold Schwarzenegger para assistir novela enquanto gravava 'O exterminador do futuro'.",
+      "image": "https://media.istockphoto.com/id/628736088/photo/retro-tv-set-isolated-on-white-background-communication-media.webp?b=1&s=170667a&w=0&k=20&c=Ft1dv3TD3KQomkAzI_6cnSiiLdAKKjEN6VNxSDfiync="
+    }
+  ]
+}

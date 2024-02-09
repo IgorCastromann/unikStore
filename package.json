@@ -10,7 +10,8 @@
     "prepare": "husky",
     "lint:staged": "lint-staged",
     "test": "jest",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "server": "npx json-server server/db.json"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
