@@ -1,15 +1,18 @@
 import { Image, VStack, Text, HStack, Pressable } from "native-base";
 import { Item } from "@src/@types/item";
 import { formatToBRL } from "@src/utils/formatter";
+import { useItemController } from "./controller";
 
 interface ItemProps {
   item: Item;
 }
 export const ItemCard = ({ item }: ItemProps) => {
+  const { handleSetSelectedItem } = useItemController();
+
   return (
     <Pressable
       onPress={() => {
-        alert("TODO");
+        handleSetSelectedItem(item);
       }}
       key={item.id}
       className="w-[inherit]  rounded-xl mx-4 my-[.125rem]"
