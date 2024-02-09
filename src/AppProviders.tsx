@@ -1,5 +1,8 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { extendTheme, NativeBaseProvider } from "native-base";
 import { type FC, type PropsWithChildren } from "react";
+
+const queryClient = new QueryClient();
 
 const inset = {
   frame: {
@@ -26,7 +29,7 @@ const customTheme = extendTheme({ config });
 const AppProviders: FC<PropsWithChildren> = ({ children }) => {
   return (
     <NativeBaseProvider initialWindowMetrics={inset} theme={customTheme}>
-      {children}
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </NativeBaseProvider>
   );
 };
