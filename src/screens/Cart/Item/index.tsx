@@ -13,7 +13,7 @@ export const CartItem = ({ item }: CartItemProps) => {
   return (
     <Center
       key={item.id}
-      className="flex-1 py-2 px-4 m-2 rounded text-center flex-row justify-between"
+      className="flex-1 py-2 px-4 m-2 rounded text-center flex-row justify-between border-b-2 border-gray-200"
     >
       <Image
         size={"sm"}
