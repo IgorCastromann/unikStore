@@ -30,7 +30,7 @@ const CategoryTag = ({ category }: CategoryTagProps) => {
   const { getCategoryClassName, handlePress } = useCategorySectionController();
 
   return (
-    <Pressable onPress={() => handlePress(category)}>
+    <Pressable onPress={() => handlePress(category)} className="h-10">
       <Box className={getCategoryClassName(category)}>{category}</Box>
     </Pressable>
   );
