@@ -15,7 +15,7 @@ export const ItemCard = ({ item }: ItemProps) => {
         handleSetSelectedItem(item);
       }}
       key={item.id}
-      className="w-[inherit]  rounded-xl mx-4 my-[.125rem]"
+      className="w-[inherit]  rounded-xl mx-4 my-[.125rem] border-2 border-gray-200 mb-1"
       testID="item"
     >
       <HStack className="rounded-xl px-2 align-middle justify-center">
