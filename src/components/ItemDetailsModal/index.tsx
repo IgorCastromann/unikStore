@@ -103,10 +103,10 @@ const ActionDetails = ({
   removeItemFromCart,
   navigateToCart,
 }: ActionDetailsProps) => (
-  <Actionsheet.Item>
+  <Actionsheet.Item className="-ml-4">
     <HStack className="w-full justify-center">
       {hasItemInCart ? (
-        <HStack>
+        <HStack className="w-full justify-center">
           <RemoveItemFromCart onPress={removeItemFromCart} />
           <GoToCart onPress={navigateToCart} />
         </HStack>
