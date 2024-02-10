@@ -15,6 +15,7 @@ const Stacks = () => {
           name="Home"
           component={Home}
           options={({ navigation }) => ({
+            title: "unikStore",
             headerRight: () => (
               <AntDesign
                 name="shoppingcart"
