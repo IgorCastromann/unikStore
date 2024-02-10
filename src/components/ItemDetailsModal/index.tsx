@@ -11,11 +11,16 @@ import {
 import { useItemDetailsModalController } from "./controller";
 import { Item } from "@src/@types/item";
 import { ActionButton } from "../shared/ActionButton";
+import { NavigationRoutes } from "@src/routes/types";
 
 interface ItemDetailModalProps {
   item: Item;
+  navigation: NavigationRoutes | undefined;
 }
-export const ItemDetailsModal = ({ item }: ItemDetailModalProps) => {
+export const ItemDetailsModal = ({
+  item,
+  navigation,
+}: ItemDetailModalProps) => {
   const modalVisible = useItemDetailsModalController(
     (state) => state.modalVisible,
   );
@@ -56,6 +61,7 @@ export const ItemDetailsModal = ({ item }: ItemDetailModalProps) => {
           }
           hasItemInCart={hasItemInCart(item.id)}
           removeItemFromCart={() => handleRemoveItemFromCart(item.id, toast)}
+          navigateToCart={() => navigation?.navigate("Cart")}
         />
       </Actionsheet.Content>
     </Actionsheet>
@@ -89,18 +95,20 @@ interface ActionDetailsProps {
   handleAddToCart: () => void;
   hasItemInCart: boolean;
   removeItemFromCart: () => void;
+  navigateToCart: () => void;
 }
 const ActionDetails = ({
   handleAddToCart,
   hasItemInCart,
   removeItemFromCart,
+  navigateToCart,
 }: ActionDetailsProps) => (
   <Actionsheet.Item>
     <HStack className="w-full justify-center">
       {hasItemInCart ? (
         <HStack>
           <RemoveItemFromCart onPress={removeItemFromCart} />
-          <GoToCart onPress={() => alert("TODO")} />
+          <GoToCart onPress={navigateToCart} />
         </HStack>
       ) : (
         <AddItemToCart onPress={handleAddToCart} />

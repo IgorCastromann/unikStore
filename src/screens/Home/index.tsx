@@ -7,8 +7,7 @@ import { Error } from "@src/components/Error";
 import { RootStackScreenComponent } from "@src/routes/types";
 import { CategorySection } from "./CategorySection";
 
-// eslint-disable-next-line no-empty-pattern
-const Home = ({}: RootStackScreenComponent<"Home">) => {
+const Home = ({ navigation }: RootStackScreenComponent<"Home">) => {
   const { queryItems, selectedItem, handleGetFilteredItems } =
     useHomeController();
 
@@ -23,7 +22,7 @@ const Home = ({}: RootStackScreenComponent<"Home">) => {
     <ScreenLayout>
       <CategorySection />
       <ItemList items={filteredItems ?? []} />
-      <ItemDetailsModal item={selectedItem!} />
+      <ItemDetailsModal item={selectedItem!} navigation={navigation} />
     </ScreenLayout>
   );
 };
