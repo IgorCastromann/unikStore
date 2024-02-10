@@ -19,6 +19,7 @@ export const useItemDetailsModalController = create<{
     alreadyInCart,
   }: HandleAddToCartProps) => void;
   hasItemInCart: (itemId: number) => boolean;
+  handleRemoveItemFromCart: (itemId: number, toast: IToastService) => void;
 }>((set) => ({
   modalVisible: false,
   setModalVisibility: (visible: boolean) => set({ modalVisible: visible }),
@@ -46,5 +47,16 @@ export const useItemDetailsModalController = create<{
   hasItemInCart: (itemId) => {
     const cartList = useCartStore.getState().cartList;
     return cartList.some((item) => item.id === itemId);
+  },
+  handleRemoveItemFromCart: (itemId, toast) => {
+    const removeFromCart = useCartStore.getState().removeFromCart;
+
+    removeFromCart(itemId);
+    toast.show({
+      placement: "top",
+      render: () => (
+        <ToastTemplate message="Item removido do carrinho!" type="success" />
+      ),
+    });
   },
 }));

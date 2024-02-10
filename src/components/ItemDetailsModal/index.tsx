@@ -28,6 +28,9 @@ export const ItemDetailsModal = ({ item }: ItemDetailModalProps) => {
   const hasItemInCart = useItemDetailsModalController(
     (state) => state.hasItemInCart,
   );
+  const handleRemoveItemFromCart = useItemDetailsModalController(
+    (state) => state.handleRemoveItemFromCart,
+  );
 
   const toast = useToast();
 
@@ -52,7 +55,7 @@ export const ItemDetailsModal = ({ item }: ItemDetailModalProps) => {
             })
           }
           hasItemInCart={hasItemInCart(item.id)}
-          removeItemFromCart={() => alert("TODO")}
+          removeItemFromCart={() => handleRemoveItemFromCart(item.id, toast)}
         />
       </Actionsheet.Content>
     </Actionsheet>
