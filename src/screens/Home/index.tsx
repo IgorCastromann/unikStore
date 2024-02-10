@@ -11,6 +11,7 @@ import { CategorySection } from "./CategorySection";
 const Home = ({}: RootStackScreenComponent<"Home">) => {
   const { queryItems, selectedItem, handleGetFilteredItems } =
     useHomeController();
+
   const { error, isLoading } = queryItems();
   const filteredItems = handleGetFilteredItems();
 

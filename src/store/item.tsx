@@ -10,7 +10,7 @@ interface ItemStoreState {
   queryItems: () => UseQueryResult<Item[], Error>;
   getCategories: () => string[];
   setSelectedCategory: (category: string | null) => void;
-  getFilteredItems: () => Item[];
+  getFilteredItems: (category: string | null) => Item[];
 }
 const useItemStore = create<ItemStoreState>((set, get) => ({
   selectedItem: null,
@@ -30,10 +30,8 @@ const useItemStore = create<ItemStoreState>((set, get) => ({
   setSelectedCategory: (category: string | null) => {
     set({ selectedCategory: category });
   },
-  getFilteredItems: () => {
+  getFilteredItems: (category: string | null) => {
     const items = get().queryItems().data;
-
-    const category = get().selectedCategory;
 
     if (!items) return [];
 
@@ -42,8 +40,5 @@ const useItemStore = create<ItemStoreState>((set, get) => ({
       : items;
   },
 }));
-
-useItemStore.subscribe((state) => state.selectedCategory);
-useItemStore.subscribe((state) => state.selectedItem);
 
 export default useItemStore;
