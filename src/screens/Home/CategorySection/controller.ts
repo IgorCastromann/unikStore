@@ -8,7 +8,7 @@ const useCategorySectionController = () => {
   );
 
   const getCategoryClassName = (category: string) => {
-    return `mr-3 mb-2 px-3 pt-1 pb-2 border rounded ${isCategorySelected(category) ? "border-cyan-500 " : "border-black"}`;
+    return `bg-white mr-3 mb-2 px-3 pt-1 pb-2 border rounded ${isCategorySelected(category) ? "border-cyan-500 " : "border-black"}`;
   };
 
   const handlePress = (category: string) => {
