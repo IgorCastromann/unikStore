@@ -4,6 +4,7 @@ import { IToastService } from "native-base/lib/typescript/components/composites/
 import { Item } from "@src/@types/item";
 import useCartStore from "@src/store/cart";
 import ToastTemplate from "../ToastTemplate";
+import { NavigationRoutes } from "@src/routes/types";
 
 interface HandleAddToCartProps {
   item: Item;
@@ -20,7 +21,8 @@ export const useItemDetailsModalController = create<{
   }: HandleAddToCartProps) => void;
   hasItemInCart: (itemId: number) => boolean;
   handleRemoveItemFromCart: (itemId: number, toast: IToastService) => void;
-}>((set) => ({
+  handleNavigateToCart: (navigation: NavigationRoutes | undefined) => void;
+}>((set, get) => ({
   modalVisible: false,
   setModalVisibility: (visible: boolean) => set({ modalVisible: visible }),
   handleAddToCart: ({ item, toast, alreadyInCart }) => {
@@ -58,5 +60,10 @@ export const useItemDetailsModalController = create<{
         <ToastTemplate message="Item removido do carrinho!" type="success" />
       ),
     });
+  },
+  handleNavigateToCart: (navigation) => {
+    const setModalVisibility = get().setModalVisibility;
+    setModalVisibility(false);
+    navigation?.navigate("Cart");
   },
 }));

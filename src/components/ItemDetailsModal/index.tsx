@@ -36,6 +36,9 @@ export const ItemDetailsModal = ({
   const handleRemoveItemFromCart = useItemDetailsModalController(
     (state) => state.handleRemoveItemFromCart,
   );
+  const handleNavigateToCart = useItemDetailsModalController(
+    (state) => state.handleNavigateToCart,
+  );
 
   const toast = useToast();
 
@@ -61,7 +64,7 @@ export const ItemDetailsModal = ({
           }
           hasItemInCart={hasItemInCart(item.id)}
           removeItemFromCart={() => handleRemoveItemFromCart(item.id, toast)}
-          navigateToCart={() => navigation?.navigate("Cart")}
+          navigateToCart={() => handleNavigateToCart(navigation)}
         />
       </Actionsheet.Content>
     </Actionsheet>
