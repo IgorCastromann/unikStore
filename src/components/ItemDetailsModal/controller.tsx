@@ -2,8 +2,8 @@
 import { create } from "zustand";
 import { IToastService } from "native-base/lib/typescript/components/composites/Toast";
 import { Item } from "@src/@types/item";
-import { Text } from "native-base";
 import useCartStore from "@src/store/cart";
+import ToastTemplate from "../ToastTemplate";
 
 interface HandleAddToCartProps {
   item: Item;
@@ -26,13 +26,17 @@ export const useItemDetailsModalController = create<{
     if (alreadyInCart) {
       toast.show({
         placement: "top",
-        render: () => <Text>Item já está no carrinho!</Text>,
+        render: () => (
+          <ToastTemplate message="Item já está no carrinho!" type="info" />
+        ),
       });
       return;
     }
     toast.show({
       placement: "top",
-      render: () => <Text>Item adicionado ao carrinho!</Text>,
+      render: () => (
+        <ToastTemplate message="Item adicionado ao carrinho!" type="success" />
+      ),
     });
 
     const addToCart = useCartStore.getState().addToCart;
