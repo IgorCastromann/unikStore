@@ -4,10 +4,15 @@ import { useHomeController } from "./controller";
 import { ItemDetailsModal } from "@src/components/ItemDetailsModal";
 import { Spin } from "@src/components/Spin";
 import { Error } from "@src/components/Error";
+import { RootStackScreenComponent } from "@src/routes/types";
+import { CategorySection } from "./CategorySection";
 
-const Home = () => {
-  const { queryItems, selectedItem } = useHomeController();
-  const { data: items, error, isLoading } = queryItems();
+// eslint-disable-next-line no-empty-pattern
+const Home = ({}: RootStackScreenComponent<"Home">) => {
+  const { queryItems, selectedItem, handleGetFilteredItems } =
+    useHomeController();
+  const { error, isLoading } = queryItems();
+  const filteredItems = handleGetFilteredItems();
 
   if (isLoading) return <Spin />;
 
@@ -15,8 +20,9 @@ const Home = () => {
 
   return (
     <ScreenLayout>
+      <CategorySection />
+      <ItemList items={filteredItems ?? []} />
       <ItemDetailsModal item={selectedItem!} />
-      <ItemList items={items ?? []} />
     </ScreenLayout>
   );
 };
