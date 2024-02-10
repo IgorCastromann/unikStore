@@ -1,13 +1,15 @@
 import { Item } from "@src/@types/item";
 import { create } from "zustand";
 
-const useCartStore = create<{
+interface CartStoreState {
   cartList: Item[];
   addToCart: (item: Item) => void;
   removeFromCart: (id: number) => void;
   checkoutCart: () => void;
   hasCartItems: () => boolean;
-}>((set, get) => ({
+  getTotalCartItems: () => number;
+}
+const useCartStore = create<CartStoreState>((set, get) => ({
   cartList: [],
   addToCart: (item: Item) =>
     set((state) => ({ cartList: [...state.cartList, item] })),
@@ -20,6 +22,11 @@ const useCartStore = create<{
     const cartList = get().cartList;
 
     return cartList.length > 0;
+  },
+  getTotalCartItems: () => {
+    const cartList = get().cartList;
+
+    return cartList.length;
   },
 }));
 

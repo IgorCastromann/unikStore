@@ -2,8 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Cart from "@src/screens/Cart";
 import Home from "@src/screens/Home";
-import { AntDesign } from "@expo/vector-icons";
 import { RootStackParamList } from "./types";
+import { CartIcon } from "@src/components/CartIcon";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -17,10 +17,8 @@ const Stacks = () => {
           options={({ navigation }) => ({
             title: "unikStore",
             headerRight: () => (
-              <AntDesign
-                name="shoppingcart"
-                size={24}
-                onPress={() => {
+              <CartIcon
+                navigateToCart={() => {
                   navigation.navigate("Cart");
                 }}
               />
