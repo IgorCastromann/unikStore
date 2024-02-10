@@ -75,7 +75,10 @@ interface BodyDetailsProps {
 }
 const BodyDetails = ({ description }: BodyDetailsProps) => (
   <Actionsheet.Item>
-    <Text>{description}</Text>
+    <Text className="text-justify">
+      {"  "}
+      {description}
+    </Text>
   </Actionsheet.Item>
 );
 

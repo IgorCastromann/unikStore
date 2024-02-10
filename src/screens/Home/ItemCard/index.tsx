@@ -36,7 +36,10 @@ export const ItemCard = ({ item }: ItemProps) => {
           className="flex-1"
         >
           <Text className="font-bold self-center">{item.name}</Text>
-          <Text className="self-center">{item.description}</Text>
+          <Text className="self-center text-justify">
+            {"  "}
+            {item.description}
+          </Text>
           <PriceSection price={formatToBRL(Number(item.price))} />
         </VStack>
       </HStack>
