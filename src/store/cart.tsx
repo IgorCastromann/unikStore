@@ -8,6 +8,7 @@ interface CartStoreState {
   checkoutCart: () => void;
   hasCartItems: () => boolean;
   getTotalCartItems: () => number;
+  getTotalValueCartItems: () => number;
 }
 const useCartStore = create<CartStoreState>((set, get) => ({
   cartList: [],
@@ -27,6 +28,11 @@ const useCartStore = create<CartStoreState>((set, get) => ({
     const cartList = get().cartList;
 
     return cartList.length;
+  },
+  getTotalValueCartItems() {
+    const cartList = get().cartList;
+
+    return +cartList.reduce((prev, cur) => prev + +cur.price, 0).toFixed(2);
   },
 }));
 

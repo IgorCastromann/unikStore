@@ -1,7 +1,10 @@
 import useCartStore from "@src/store/cart";
 import { formatToBRL } from "@src/utils/formatter";
+import { useState } from "react";
 
 export const useCartController = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const cartTotal = () => {
     const cartList = useCartStore((state) => state.cartList);
 
@@ -10,12 +13,18 @@ export const useCartController = () => {
   };
 
   const handleOpenCheckout = () => {
-    alert("TODO checkout");
+    setIsModalOpen(true);
+  };
+
+  const handleCloseCheckout = () => {
+    setIsModalOpen(false);
   };
 
   return {
     cartTotal,
     handleOpenCheckout,
+    handleCloseCheckout,
+    isModalOpen,
   };
 };
 
