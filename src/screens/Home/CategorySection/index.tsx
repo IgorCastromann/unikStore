@@ -16,7 +16,7 @@ export const CategorySection = () => {
           setSelectedCategory={setSelectedCategory}
         />
       )}
-      className="m-2 bg-blue-200]"
+      className="mx-5 my-2"
     />
   );
 };
