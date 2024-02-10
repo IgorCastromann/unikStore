@@ -18,7 +18,7 @@ const Cart = ({}: RootStackScreenComponent<"Cart">) => {
   if (!hasCartItems) return <EmptyCart />;
 
   return (
-    <ScreenLayout>
+    <ScreenLayout height="100%">
       <FlatList
         data={cartList}
         renderItem={({ item }) => <CartItem item={item} />}

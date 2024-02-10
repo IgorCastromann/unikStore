@@ -1,8 +1,12 @@
 import { type PropsWithChildren } from "react";
 import { VStack } from "native-base";
 
-const ScreenLayout = ({ children }: PropsWithChildren) => (
-  <VStack safeAreaX safeAreaBottom>
+interface ScreenLayoutProps extends PropsWithChildren {
+  height?: string;
+}
+
+const ScreenLayout = ({ height, children }: ScreenLayoutProps) => (
+  <VStack safeAreaX safeAreaBottom height={height}>
     {children}
   </VStack>
 );
