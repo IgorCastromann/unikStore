@@ -10,6 +10,7 @@ export const ItemList = ({ items }: ItemListProps) => {
     <FlatList
       data={items}
       renderItem={({ item }) => <ItemCard item={item} />}
+      testID="items-list"
     />
   );
 };
