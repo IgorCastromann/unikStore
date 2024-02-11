@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "prepare": "husky",
     "lint:staged": "lint-staged",
-    "test": "jest",
+    "test": "jest --runInBand --detectOpenHandles --forceExit",
+    "test:coverage": "jest --runInBand --detectOpenHandles --forceExit --coverage",
     "postinstall": "patch-package",
     "server": "npx json-server --host 192.168.15.10 server/db.json"
   },
