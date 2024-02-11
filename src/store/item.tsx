@@ -53,8 +53,7 @@ const useItemStore = create<ItemStoreState>((set, get) => ({
   },
 }));
 
-useItemStore.subscribe((state, prev) => {
-  console.log("State changed", state, prev);
+useItemStore.subscribe((state) => {
   return state.search;
 });
 
