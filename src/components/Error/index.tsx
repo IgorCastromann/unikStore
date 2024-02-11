@@ -5,7 +5,7 @@ interface ErrorProps {
 }
 export const Error = ({ message }: ErrorProps) => {
   return (
-    <HStack className="flex-1 justify-center">
+    <HStack className="flex-1 justify-center" testID="error">
       <Text>Error: {message}</Text>
     </HStack>
   );

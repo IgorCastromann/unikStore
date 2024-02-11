@@ -7,7 +7,7 @@ export const buildItemMock = (id = 1): Item => ({
   quantity: 1,
   image: "",
   description: "description",
-  category: "category",
+  category: `category${id}`,
 });
 
 export const buildItemsArrayMock = (length: number): Item[] =>
