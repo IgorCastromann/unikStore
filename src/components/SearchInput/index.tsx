@@ -14,6 +14,7 @@ export const SearchInput = ({ setSearch }: SearchInputProps) => {
       variant="underlined"
       onChangeText={(val) => setSearch(val)}
       width={isIOS ? "80%" : "90%"}
+      testID="search-input"
     />
   );
 };
