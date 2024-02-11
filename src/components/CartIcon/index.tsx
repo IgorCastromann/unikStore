@@ -38,7 +38,7 @@ export const CartIcon = ({ navigateToCart }: CartIconProps) => {
   );
 
   return (
-    <VStack>
+    <VStack className="mr-1">
       <ConditionalWrapper
         condition={totalCartItems > 0}
         wrapper={() => renderBadge({ totalCartItems, icon: renderIcon() })}
