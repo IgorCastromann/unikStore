@@ -39,10 +39,9 @@ const useItemStore = create<ItemStoreState>((set, get) => ({
     if (!items) return [];
 
     const filteredItems = items.filter((item) => {
-      const productName = item.name.toLowerCase();
+      const itemName = item.name.toLowerCase();
       const isInCategory = !category || item.category === category;
-      const matchesSearch =
-        !search || productName.includes(search.toLowerCase());
+      const matchesSearch = !search || itemName.includes(search.toLowerCase());
       return isInCategory && matchesSearch;
     });
 
