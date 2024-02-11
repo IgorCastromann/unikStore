@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Cart from "@src/screens/Cart";
 import Home from "@src/screens/Home";
 import { RootStackParamList } from "./types";
-import { CartIcon } from "@src/components/CartIcon";
+import { HeaderLeft, HeaderRight } from "@src/components/Header";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -15,14 +15,9 @@ const Stacks = () => {
           name="Home"
           component={Home}
           options={({ navigation }) => ({
-            title: "unikStore",
-            headerRight: () => (
-              <CartIcon
-                navigateToCart={() => {
-                  navigation.navigate("Cart");
-                }}
-              />
-            ),
+            title: "",
+            headerLeft: () => <HeaderLeft />,
+            headerRight: () => <HeaderRight navigation={navigation} />,
           })}
         />
         <Stack.Screen name="Cart" component={Cart} />
