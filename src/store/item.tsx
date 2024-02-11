@@ -6,15 +6,18 @@ import { create } from "zustand";
 interface ItemStoreState {
   selectedItem: Item | null;
   selectedCategory: string | null;
+  search: string;
   setSelectedItem: (item: Item | null) => void;
   queryItems: () => UseQueryResult<Item[], Error>;
   getCategories: () => string[];
   setSelectedCategory: (category: string | null) => void;
-  getFilteredItems: (category: string | null) => Item[];
+  getFilteredItems: (category: string | null, search: string) => Item[];
+  setSearch: (search: string) => void;
 }
 const useItemStore = create<ItemStoreState>((set, get) => ({
   selectedItem: null,
   selectedCategory: null,
+  search: "",
   setSelectedItem: (item: Item | null) => {
     set({ selectedItem: item });
   },
@@ -30,15 +33,29 @@ const useItemStore = create<ItemStoreState>((set, get) => ({
   setSelectedCategory: (category: string | null) => {
     set({ selectedCategory: category });
   },
-  getFilteredItems: (category: string | null) => {
+  getFilteredItems: (category: string | null, search: string) => {
     const items = get().queryItems().data;
 
     if (!items) return [];
 
-    return category
-      ? items.filter((item) => item.category === category)
-      : items;
+    const filteredItems = items.filter((item) => {
+      const productName = item.name.toLowerCase();
+      const isInCategory = !category || item.category === category;
+      const matchesSearch =
+        !search || productName.includes(search.toLowerCase());
+      return isInCategory && matchesSearch;
+    });
+
+    return filteredItems;
+  },
+  setSearch: (search: string) => {
+    set({ search });
   },
 }));
+
+useItemStore.subscribe((state, prev) => {
+  console.log("State changed", state, prev);
+  return state.search;
+});
 
 export default useItemStore;
