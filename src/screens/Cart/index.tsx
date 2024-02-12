@@ -28,7 +28,8 @@ const Cart = ({}: RootStackScreenComponent<"Cart">) => {
       <CartTotal formattedItemsTotal={cartTotalValue} />
       <Button
         className="bg-green-500 mx-4 rounded-xl mb-1"
-        onPress={() => handleOpenCheckout()}
+        onPress={handleOpenCheckout}
+        testID="button-checkout"
       >
         Checkout
       </Button>
@@ -56,6 +57,7 @@ const CartListItems = ({ cartList }: CartListItemsProps) => {
           <CartItem item={item} />
         </View>
       )}
+      testID="cart-list-items"
     />
   );
 };
