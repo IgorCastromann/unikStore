@@ -7,7 +7,12 @@ interface CheckoutModalProps {
 }
 export const CheckoutModal = ({ isOpen, onClose }: CheckoutModalProps) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} className="bg-black">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      className="bg-black"
+      testID="checkout-modal"
+    >
       <Modal.Content className="bg-black">
         <CheckoutForm />
       </Modal.Content>
