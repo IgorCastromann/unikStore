@@ -14,6 +14,7 @@ export const CartItem = ({ item }: CartItemProps) => {
     <Center
       key={item.id}
       className="flex-1  py-2 px-4 m-2 rounded text-center flex-row justify-between border-b-2 border-gray-200 bg-white"
+      testID="cart-item"
     >
       <Image
         size={"sm"}
@@ -34,6 +35,7 @@ export const CartItem = ({ item }: CartItemProps) => {
         onPress={() => {
           removeFromCart(item.id);
         }}
+        testID="remove-from-cart-button"
       />
     </Center>
   );
