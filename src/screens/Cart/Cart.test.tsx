@@ -80,10 +80,8 @@ describe("<Cart />", () => {
 
     const { getByTestId } = renderWithProvider(<Cart />);
 
-    const buttonCheckout = getByTestId("button-checkout");
-
     act(() => {
-      fireEvent.press(buttonCheckout);
+      fireEvent.press(getByTestId("button-checkout"));
     });
 
     await waitFor(() => {

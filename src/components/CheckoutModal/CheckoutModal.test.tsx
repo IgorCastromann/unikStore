@@ -1,5 +1,6 @@
 import { renderWithProvider } from "@test/render";
 import { CheckoutModal } from ".";
+import { act } from "@testing-library/react-native";
 
 describe("<CheckoutModal />", () => {
   it("renders correctly", () => {
@@ -16,7 +17,9 @@ describe("<CheckoutModal />", () => {
       <CheckoutModal isOpen={false} onClose={onClose} />,
     );
 
-    onClose();
+    act(() => {
+      onClose();
+    });
 
     expect(onClose).toHaveBeenCalledTimes(1);
     expect(queryByTestId("checkout-modal")).toBeNull();
