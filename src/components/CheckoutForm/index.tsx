@@ -1,4 +1,3 @@
-import useCartStore from "@src/store/cart";
 import {
   Frames,
   CardNumber,
@@ -7,24 +6,20 @@ import {
   SubmitButton,
 } from "frames-react-native";
 import { View } from "native-base";
-import { useState } from "react";
 import { StyleSheet } from "react-native";
+import useCheckoutFormController from "./controller";
 
 export const CheckoutForm = () => {
-  const [isValid, setIsValid] = useState(false);
-  const totalCartValue = useCartStore((state) =>
-    state.getTotalValueCartItems(),
-  );
+  const { handleCheckout, isValid, publicKey, setIsValid, totalCartValue } =
+    useCheckoutFormController();
 
   return (
     <Frames
       config={{
         debug: true,
-        publicKey: "pk_test_4296fd52-efba-4a38-b6ce-cf0d93639d8a",
+        publicKey,
       }}
-      cardTokenized={(e) => {
-        alert(e.token);
-      }}
+      cardTokenized={() => {}}
       frameValidationChanged={(e) => {
         setIsValid(e.isValid);
       }}
@@ -33,15 +28,16 @@ export const CheckoutForm = () => {
 
       <View style={styles.dateAndCode}>
         <ExpiryDate style={styles.expiryDate} placeholderTextColor="#9898A0" />
-        <Cvv style={styles.cvv} placeholderTextColor="#9898A0" />
+        <Cvv style={styles.cvv} placeholderTextColor="#9898A0" testID="cvv" />
       </View>
 
       <SubmitButton
-        title={isValid ? `Pay R$${totalCartValue}` : "Invalid card"}
+        title={isValid ? `Pagar R$ ${totalCartValue}` : "Invalid card"}
         style={styles.button}
         textStyle={styles.buttonText}
         disabled={!isValid}
-        onPress={() => alert("Payment button pressed")}
+        onPress={handleCheckout}
+        testID="submit-payment-button"
       />
     </Frames>
   );
