@@ -10,7 +10,6 @@ export const SearchInput = ({ setSearch }: SearchInputProps) => {
   return (
     <Input
       placeholder="Buscar em unikStore"
-      autoFocus
       variant="underlined"
       onChangeText={(val) => setSearch(val)}
       width={isIOS ? "80%" : "90%"}
