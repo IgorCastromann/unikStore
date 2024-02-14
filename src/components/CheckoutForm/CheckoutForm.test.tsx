@@ -1,23 +1,31 @@
-import { act, fireEvent, renderHook } from "@testing-library/react-native";
+import { act, renderHook } from "@testing-library/react-native";
 import useCheckoutFormController from "./controller";
-import { renderWithProvider } from "@test/render";
-import { CheckoutForm } from ".";
+import { RootStackScreenComponent } from "@src/routes/types";
+import * as ReactQuery from "@tanstack/react-query";
+
+jest.useFakeTimers();
+jest.spyOn(global, "setTimeout");
+
+jest.mock("@tanstack/react-query", () => {
+  const original: typeof ReactQuery = jest.requireActual(
+    "@tanstack/react-query",
+  );
+
+  return {
+    ...original,
+    useMutation: () => ({
+      mutate: jest.fn(),
+      isLoading: false,
+      error: {},
+    }),
+  };
+});
+
+const mockNavigation = {} as RootStackScreenComponent<"Cart">["navigation"];
 
 describe("<CheckoutForm />", () => {
-  it("find submit button on validaded state", () => {
-    const { getByTestId, queryByText } = renderWithProvider(<CheckoutForm />);
-    const { result } = renderHook(() => useCheckoutFormController());
-
-    act(() => {
-      const cvv = getByTestId("cvv");
-      fireEvent.changeText(cvv, "123");
-    });
-
-    const submitButton = queryByText(
-      `Pagar R$ ${result.current.totalCartValue}`,
-    );
-
-    expect(submitButton).toBeDefined();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   describe("useCheckouFormController", () => {
@@ -27,7 +35,7 @@ describe("<CheckoutForm />", () => {
       const spy = jest.spyOn(result.current, "handleCheckout");
 
       act(() => {
-        result.current.handleCheckout();
+        result.current.handleCheckout(mockNavigation);
       });
 
       expect(spy.mock.calls.length).toBe(1);

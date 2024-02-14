@@ -1,6 +1,8 @@
 import { NavigationRoutes } from "@src/routes/types";
 import useCartStore from "@src/store/cart";
+import { useToast } from "native-base";
 import { useState } from "react";
+import ToastTemplate from "../ToastTemplate";
 
 const PUBLIC_KEY = process.env.EXPO_PUBLIC_FRAMES_REACT_NATIVE_KEY;
 
@@ -10,6 +12,7 @@ const useCheckoutFormController = () => {
   const [isValid, setIsValid] = useState(false);
   const checkoutMutation = useCartStore((state) => state.checkoutCart());
   const clearCart = useCartStore((state) => state.clearCart);
+  const toast = useToast();
 
   const totalCartValue = useCartStore((state) =>
     state.getTotalValueCartItems(),
@@ -23,7 +26,16 @@ const useCheckoutFormController = () => {
       checkoutMutation.mutate(cartList);
       setTimeout(() => {
         clearCart();
-        alert("Compra realizada com sucesso");
+        toast.show({
+          placement: "top",
+          render: () => (
+            <ToastTemplate
+              message="Compra realizada com sucesso!"
+              type="success"
+            />
+          ),
+        });
+
         navigation?.navigate("Home");
         setIsLoading(false);
       }, 2000);
