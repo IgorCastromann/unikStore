@@ -1,5 +1,8 @@
+import { Item } from "@src/@types/item";
 import services from "@src/service/items";
-import { useQuery } from "@tanstack/react-query";
+import { QueryClient, useMutation, useQuery } from "@tanstack/react-query";
+
+export const queryClient = new QueryClient();
 
 const queryItems = () => {
   const query = useQuery({
@@ -10,8 +13,38 @@ const queryItems = () => {
   return query;
 };
 
+const deleteItem = () => {
+  const mutation = useMutation({
+    mutationFn: (item: Item) => {
+      return services.removeItem(item);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["items"],
+      });
+    },
+  });
+
+  return mutation;
+};
+
+const checkoutItems = () => {
+  const mutation = useMutation({
+    mutationFn: (items: Item[]) => services.checkoutItems(items),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["items"],
+      });
+    },
+  });
+
+  return mutation;
+};
+
 const queries = {
   queryItems,
+  deleteItem,
+  checkoutItems,
 };
 
 export default queries;
