@@ -1,6 +1,7 @@
 import { renderWithProvider } from "@test/render";
 import { CategorySection, CategoryTag } from ".";
-import { fireEvent } from "@testing-library/react-native";
+import { fireEvent, renderHook } from "@testing-library/react-native";
+import useCategorySectionController from "./controller";
 
 jest.mock("./controller", () => ({
   __esModule: true,
@@ -49,6 +50,38 @@ describe("<CategorySection />", () => {
 
       expect(mockHandlePress).toHaveBeenCalled();
       expect(mockHandlePress).toHaveBeenCalledWith("category2");
+    });
+  });
+
+  describe("useCategorySectionController", () => {
+    it("uniqueCategories", () => {
+      const { result } = renderHook(() => useCategorySectionController());
+
+      expect(result.current.uniqueCategories).toEqual([
+        "category1",
+        "category2",
+      ]);
+    });
+
+    it("setSelectedCategory", async () => {
+      const { result } = renderHook(() => useCategorySectionController());
+
+      const spy = jest.spyOn(result.current, "setSelectedCategory");
+
+      result.current.setSelectedCategory("category2");
+
+      expect(spy.mock.calls.length).toBe(1);
+      expect(spy).toHaveBeenCalledWith("category2");
+    });
+
+    it("getCategoryClassName", () => {
+      const { result } = renderHook(() => useCategorySectionController());
+      const spy = jest.spyOn(result.current, "getCategoryClassName");
+
+      result.current.getCategoryClassName("category1");
+
+      expect(spy.mock.calls.length).toBe(1);
+      expect(spy).toHaveBeenCalledWith("category1");
     });
   });
 });
