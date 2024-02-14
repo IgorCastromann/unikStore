@@ -3,6 +3,8 @@ import { CheckoutModal } from ".";
 import { act } from "@testing-library/react-native";
 import { RootStackScreenComponent } from "@src/routes/types";
 
+jest.spyOn(console, "error").mockImplementation(() => {}); // somehow  this components throws a warning about the need of act
+
 jest.mock("@tanstack/react-query", () => {
   const original = jest.requireActual("@tanstack/react-query");
 
