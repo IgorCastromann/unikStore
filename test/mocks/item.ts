@@ -1,6 +1,6 @@
 import { Item } from "@src/@types/item";
 
-export const buildItemMock = (id = 1): Item => ({
+export const buildItemMock = (id = "1"): Item => ({
   id,
   name: `item-${id}`,
   price: 10,
@@ -11,4 +11,4 @@ export const buildItemMock = (id = 1): Item => ({
 });
 
 export const buildItemsArrayMock = (length: number): Item[] =>
-  [...Array(length)].map((_, i) => buildItemMock(i));
+  [...Array(length)].map((_, i) => buildItemMock(i.toString()));

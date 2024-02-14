@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Camiseta aero 5.0",
       "price": 199.99,
       "quantity": 1,
@@ -10,7 +10,7 @@
       "image": "https://media.istockphoto.com/id/485870443/photo/back-of-a-man-with-a-ripped-white-t-shirt.webp?b=1&s=170667a&w=0&k=20&c=SHj8HJ9_-VJ9vI2OLmwXzwTIMb_d-pbSOt8l6ShihM8="
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Caneca de King`s Landing",
       "price": 39.99,
       "quantity": 1,
@@ -19,7 +19,7 @@
       "image": "https://media.istockphoto.com/id/461150479/photo/blue-mug-isolated-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=yprCtcNF0LVizKyNJ0_g4avukBtbBG2c2IEbxXDh0_Q="
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Carteira de couro",
       "price": 10000.0,
       "quantity": 1,
@@ -28,7 +28,7 @@
       "image": "https://media.istockphoto.com/id/187565523/photo/wallet.webp?b=1&s=170667a&w=0&k=20&c=ZS5NNMdv8Em_Uo5khTUbmlnb-8o5jKaVeiRxpTUpHdE="
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Lapiseira 007",
       "price": 2399.99,
       "quantity": 1,
@@ -37,7 +37,7 @@
       "image": "https://cdnv2.moovin.com.br/marbig/imagens/produtos/det/lapiseira-0-7mm-i-point-preta-img-89801.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sneakers USA Flag",
       "price": 5000,
       "quantity": 1,
@@ -46,7 +46,7 @@
       "image": "https://media.istockphoto.com/id/514151240/photo/vintage-basketball-shoes-with-usa-flag.webp?b=1&s=170667a&w=0&k=20&c=daNSUh3penlYkDmY6WpzmIdaYKr398NdKsAx-TDAeic="
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Bermuda de banho",
       "price": 144.99,
       "quantity": 1,
@@ -55,7 +55,7 @@
       "image": "https://media.istockphoto.com/id/487387674/photo/swimming-trunks.webp?b=1&s=170667a&w=0&k=20&c=GcC4INM2QXORok-dtHOgn9G-tmDHdQQUeFz9y4gMBV0="
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Primeira Pedra",
       "price": 1.99,
       "quantity": 1,
@@ -64,7 +64,7 @@
       "image": "https://media.istockphoto.com/id/946132558/photo/rock-isolated-on-white-background.webp?b=1&s=170667a&w=0&k=20&c=zs-m7yWaI6quGw31rhF_-DcY7aesyzKPzbahNsDLwbM="
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Todos troféus de mundial do Palmeiras",
       "price": 6173317.0,
       "quantity": 1,
@@ -73,7 +73,7 @@
       "image": "https://media.istockphoto.com/id/1370544962/photo/white-paper-background-fibrous-cardboard-texture-for-scrapbooking.webp?b=1&s=170667a&w=0&k=20&c=xr9AiLxrwsEeG2heLhc7tGqgBYOtdQBb1EH2LLETxRc="
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "PC Gamer RGB",
       "price": 3329.99,
       "quantity": 1,
@@ -82,7 +82,7 @@
       "image": "https://media.istockphoto.com/id/1435610168/photo/gamer-computer-desktop-with-rgb-lights-on-the-background-modern-pc-computer-white-screen.webp?b=1&s=170667a&w=0&k=20&c=XmO7zsfqqpyKCJknbln7VaQybGlBGyffOxm1-QzBOhU="
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Tijolo",
       "price": 3000.8,
       "quantity": 1,
@@ -91,7 +91,7 @@
       "image": "https://media.istockphoto.com/id/147319929/photo/two-bricks.webp?b=1&s=170667a&w=0&k=20&c=NgRKomxQ9-p34kOsM6wEXAPYnvvM2lWFVxnRqIYsvSY="
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Tv 4K",
       "price": 4000,
       "quantity": 1,
