@@ -3,8 +3,6 @@ import { extendTheme, NativeBaseProvider } from "native-base";
 import { type FC, type PropsWithChildren } from "react";
 import { queryClient } from "./queries";
 
-jest.mock("axios");
-
 const inset = {
   frame: {
     x: 0,
