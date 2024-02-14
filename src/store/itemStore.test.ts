@@ -2,11 +2,16 @@ import { act, renderHook } from "@testing-library/react-native";
 import useItemStore from "./item";
 import { buildItemsArrayMock } from "@test/mocks/item";
 import { Item } from "@src/@types/item";
+import * as ReactQuery from "@tanstack/react-query";
 
 const mockItems = buildItemsArrayMock(3);
 
 jest.mock("@tanstack/react-query", () => {
-  const buildItemMock = (id = 1): Item => ({
+  const original: typeof ReactQuery = jest.requireActual(
+    "@tanstack/react-query",
+  );
+
+  const buildItemMock = (id = "1"): Item => ({
     id,
     name: `item-${id}`,
     price: 10,
@@ -16,9 +21,10 @@ jest.mock("@tanstack/react-query", () => {
     category: `category${id}`,
   });
 
-  const mockItems = [...Array(3)].map((_, i) => buildItemMock(i));
+  const mockItems = [...Array(3)].map((_, i) => buildItemMock(i.toString()));
 
   return {
+    ...original,
     useQuery: jest.fn().mockReturnValue({
       data: mockItems,
       isLoading: false,
