@@ -28,20 +28,20 @@ describe("useCartStore", () => {
     act(() => {
       result.current.addToCart(mockItems[0]);
       result.current.addToCart(mockItems[1]);
-      result.current.removeFromCart(1);
+      result.current.removeFromCart("1");
     });
 
     expect(result.current.cartList).toHaveLength(1);
     expect(result.current.cartList[0].name).toBe("item-0");
   });
 
-  it("checkoutCart", () => {
+  it("clearCart", () => {
     const { result } = renderHook(() => useCartStore());
 
     act(() => {
       result.current.addToCart(mockItems[0]);
       result.current.addToCart(mockItems[1]);
-      result.current.checkoutCart();
+      result.current.clearCart();
     });
 
     expect(result.current.cartList).toHaveLength(0);
