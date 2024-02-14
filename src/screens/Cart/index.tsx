@@ -9,8 +9,7 @@ import { CartItem } from "./Item";
 import { Item } from "@src/@types/item";
 import { CheckoutModal } from "@src/components/CheckoutModal";
 
-// eslint-disable-next-line no-empty-pattern
-const Cart = ({}: RootStackScreenComponent<"Cart">) => {
+const Cart = ({ navigation }: RootStackScreenComponent<"Cart">) => {
   const { cartTotal, handleOpenCheckout, isModalOpen, handleCloseCheckout } =
     useCartController();
   const cartList = useCartStore((state) => state.cartList);
@@ -23,7 +22,11 @@ const Cart = ({}: RootStackScreenComponent<"Cart">) => {
 
   return (
     <ScreenLayout height="100%">
-      <CheckoutModal isOpen={isModalOpen} onClose={handleCloseCheckout} />
+      <CheckoutModal
+        isOpen={isModalOpen}
+        onClose={handleCloseCheckout}
+        navigation={navigation}
+      />
       <CartListItems cartList={cartList} />
       <CartTotal formattedItemsTotal={cartTotalValue} />
       <Button
