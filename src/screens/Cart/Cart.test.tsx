@@ -15,6 +15,8 @@ const cartTotal = jest.fn();
 const mockCartTotalValue = "R$ 10,00";
 const initialCartStoreState = useCartStore.getState();
 
+jest.spyOn(console, "error").mockImplementation(() => {}); // somehow  this components throws a warning about the need of act
+
 jest
   .spyOn(useCartStore.getState(), "hasCartItems")
   .mockReturnValueOnce(false)

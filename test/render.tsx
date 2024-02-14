@@ -1,9 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react-native";
+import axios from "axios";
 import { NativeBaseProvider } from "native-base";
 import { ReactNode } from "react";
 
-jest.mock("axios");
+jest.spyOn(axios, "get").mockResolvedValue({ data: {} });
 
 const inset = {
   frame: { x: 0, y: 0, width: 0, height: 0 },
