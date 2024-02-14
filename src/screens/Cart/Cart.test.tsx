@@ -35,6 +35,19 @@ jest
     isModalOpen: false,
   }));
 
+jest.mock("@tanstack/react-query", () => {
+  const original = jest.requireActual("@tanstack/react-query");
+
+  return {
+    ...original,
+    useMutation: () => ({
+      mutate: jest.fn(),
+      isLoading: false,
+      error: {},
+    }),
+  };
+});
+
 const insetProductsToCart = (n: number) => {
   const mockCartList = buildItemsArrayMock(n);
 
