@@ -3,6 +3,7 @@ import { renderWithProvider } from "@test/render";
 import { CardSectionForm } from ".";
 
 const mockSetIsValid = jest.fn();
+jest.spyOn(console, "info").mockImplementation(() => {}); // disable library logs
 
 describe("<CardSectionForm />", () => {
   it("find submit button on validaded state", () => {
