@@ -30,9 +30,11 @@ const deleteItem = () => {
 
 const checkoutItems = () => {
   const mutation = useMutation({
-    mutationFn: (items: Item[]) => services.checkoutItems(items),
+    mutationFn: (items: Item[]) => {
+      return services.checkoutItems(items);
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({
+      return queryClient.invalidateQueries({
         queryKey: ["items"],
       });
     },

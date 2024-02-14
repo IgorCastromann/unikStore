@@ -19,8 +19,8 @@ export const useItemDetailsModalController = create<{
     toast,
     alreadyInCart,
   }: HandleAddToCartProps) => void;
-  hasItemInCart: (itemId: number) => boolean;
-  handleRemoveItemFromCart: (itemId: number, toast: IToastService) => void;
+  hasItemInCart: (itemId: string) => boolean;
+  handleRemoveItemFromCart: (itemId: string, toast: IToastService) => void;
   handleNavigateToCart: (navigation: NavigationRoutes | undefined) => void;
 }>((set, get) => ({
   modalVisible: false,
