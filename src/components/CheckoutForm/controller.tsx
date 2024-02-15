@@ -16,11 +16,19 @@ const useCheckoutFormController = () => {
   const setSelectedCategory = useItemStore(
     (state) => state.setSelectedCategory,
   );
+  const setSearch = useItemStore((state) => state.setSearch);
+
   const toast = useToast();
 
   const totalCartValue = useCartStore((state) =>
     state.getTotalValueCartItems(),
   );
+
+  const resetState = () => {
+    clearCart();
+    setSelectedCategory(null);
+    setSearch("");
+  };
 
   const handleCheckout = (navigation: NavigationRoutes | undefined) => {
     const cartList = useCartStore.getState().cartList;
@@ -29,8 +37,7 @@ const useCheckoutFormController = () => {
     try {
       checkoutMutation.mutate(cartList);
       setTimeout(() => {
-        clearCart();
-        setSelectedCategory(null);
+        resetState();
 
         toast.show({
           placement: "top",
