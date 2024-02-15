@@ -3,6 +3,7 @@ import useCartStore from "@src/store/cart";
 import { useToast } from "native-base";
 import { useState } from "react";
 import ToastTemplate from "../ToastTemplate";
+import useItemStore from "@src/store/item";
 
 const PUBLIC_KEY = process.env.EXPO_PUBLIC_FRAMES_REACT_NATIVE_KEY;
 
@@ -12,6 +13,9 @@ const useCheckoutFormController = () => {
   const [isValid, setIsValid] = useState(false);
   const checkoutMutation = useCartStore((state) => state.checkoutCart());
   const clearCart = useCartStore((state) => state.clearCart);
+  const setSelectedCategory = useItemStore(
+    (state) => state.setSelectedCategory,
+  );
   const toast = useToast();
 
   const totalCartValue = useCartStore((state) =>
@@ -26,6 +30,8 @@ const useCheckoutFormController = () => {
       checkoutMutation.mutate(cartList);
       setTimeout(() => {
         clearCart();
+        setSelectedCategory(null);
+
         toast.show({
           placement: "top",
           render: () => (
