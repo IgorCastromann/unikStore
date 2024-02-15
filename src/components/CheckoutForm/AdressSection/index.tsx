@@ -29,7 +29,7 @@ export const AdressSection = () => {
   };
 
   return (
-    <VStack space={0}>
+    <VStack space={0} testID="address-section">
       <FormControl isRequired isInvalid={!handleEmptyValidation(formData.name)}>
         <Stack mx="2">
           <FormControl.Label>Nome</FormControl.Label>

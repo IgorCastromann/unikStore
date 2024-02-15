@@ -2,6 +2,8 @@ import { act, renderHook } from "@testing-library/react-native";
 import useCheckoutFormController from "./controller";
 import { RootStackScreenComponent } from "@src/routes/types";
 import * as ReactQuery from "@tanstack/react-query";
+import { renderWithProvider } from "@test/render";
+import { CheckoutForm } from ".";
 
 jest.useFakeTimers();
 jest.spyOn(global, "setTimeout");
@@ -26,6 +28,23 @@ const mockNavigation = {} as RootStackScreenComponent<"Cart">["navigation"];
 describe("<CheckoutForm />", () => {
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  it("renders the checkout form initial state", () => {
+    const { getByTestId, getByText } = renderWithProvider(
+      <CheckoutForm navigation={mockNavigation} />,
+    );
+
+    const AddressSection = getByTestId("address-section");
+    const cvv = getByTestId("cvv");
+    const submitPaymentButton = getByTestId("submit-payment-button");
+    const invalidCardText = getByText("Invalid card");
+
+    expect(AddressSection).toBeDefined();
+    expect(cvv).toBeDefined();
+    expect(submitPaymentButton).toBeDefined();
+    expect(invalidCardText).toBeDefined();
+    expect(submitPaymentButton.props.accessibilityState.disabled).toBe(true);
   });
 
   describe("useCheckouFormController", () => {
