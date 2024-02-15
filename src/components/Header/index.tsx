@@ -8,8 +8,9 @@ interface HeaderProps {
 }
 export const HeaderLeft = () => {
   const setSearch = useItemStore((state) => state.setSearch);
+  const search = useItemStore((state) => state.search);
 
-  return <SearchInput setSearch={setSearch} />;
+  return <SearchInput setSearch={setSearch} search={search} />;
 };
 
 export const HeaderRight = ({ navigation }: HeaderProps) => {
