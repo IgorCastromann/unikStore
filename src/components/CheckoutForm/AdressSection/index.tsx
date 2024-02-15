@@ -1,3 +1,4 @@
+import { validateEmail } from "@src/utils/validations";
 import {
   FormControl,
   Input,
@@ -46,10 +47,7 @@ export const AdressSection = () => {
         </Stack>
       </FormControl>
 
-      <FormControl
-        isRequired
-        isInvalid={!handleEmptyValidation(formData.email)}
-      >
+      <FormControl isRequired isInvalid={!validateEmail(formData.email)}>
         <Stack mx="2">
           <FormControl.Label>Email</FormControl.Label>
           <Input
