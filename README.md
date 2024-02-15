@@ -2,6 +2,35 @@
 
 Welcome to UnikStore! UnikStore is a unique marketplace where you can find and purchase one-of-a-kind items. This project was created using Expo with TypeScript support and integrates various technologies to provide a seamless shopping experience.
 
+# The app
+
+<div align="center">
+  <video src="https://github.com/IgorCastromann/unikStore/assets/66645319/85cd3acc-2529-40c8-8a0f-ed5f2805374a" width="400"  />
+</div>
+
+<div align="center">
+   
+## Home screen 
+![home-screen](https://github.com/IgorCastromann/unikStore/assets/66645319/534ce986-a6b3-4472-b471-de03fb15c019)
+
+## Filtered by category
+![filtered-by-category](https://github.com/IgorCastromann/unikStore/assets/66645319/1087db00-f83b-4d75-995c-aa26fad28c08)
+
+
+## Adding item to cart
+![adding-item-to-cart](https://github.com/IgorCastromann/unikStore/assets/66645319/10d690f1-e5f8-4035-bb27-213952092d1b)
+
+## Cart screen
+![cart-screenn](https://github.com/IgorCastromann/unikStore/assets/66645319/7a19488f-93eb-4a0d-9b72-bba3ae88bb40)
+
+
+## checkout form
+![checkout-form](https://github.com/IgorCastromann/unikStore/assets/66645319/68102555-c8df-434f-b5f4-19a97e524683)
+![checkout-form-valid](https://github.com/IgorCastromann/unikStore/assets/66645319/4d8a9a4b-f175-4bc9-94b1-82f7c69f5c63)
+
+</div>
+
+
 ## Getting Started
 
 To get started with UnikStore, follow these steps:
@@ -131,6 +160,10 @@ Encapsulates functionality into reusable modules, facilitating feature addition,
 
 #### Scalability:
 Scales well with application growth, enabling the addition of new controllers to manage expanding features or sections of the UI.
+
+
+# test coverage
+![test-coverage](https://github.com/IgorCastromann/unikStore/assets/66645319/8f329642-3e4b-499c-84d9-0f0ec44b24a4)
 
 
 
